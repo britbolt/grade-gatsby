@@ -1,0 +1,58 @@
+Requirements:
+-Use Node.js and Express.js to create a RESTful API.
+-Use Handlebars.js as the templating engine.
+-Use MySQL and the Sequelize ORM for the database.
+-Have both GET and POST routes for retrieving and adding new data.
+-Be deployed using Heroku (with data).
+-Use at least one new library, package, or technology that we haven’t discussed.
+-Have a polished UI.
+-Be responsive.
+-Be interactive (i.e., accept and respond to user input).
+-Have a folder structure that meets the MVC paradigm.
+-Include authentication (express-session and cookies).
+-Protect API keys and sensitive information with environment variables.
+
+
+theGradeGatsby
+
+Tables:
+
+Teachers
+-teacherId
+-name
+-email
+-password
+
+Students
+-studentId
+-name
+-email
+-password
+-teacherId (foreign key)
+
+Grades
+-gradeId
+-letterGrade
+
+classRecord
+-gradeId
+-studentId
+-teacherId
+
+
+Associations:
+
+Teacher has many Students
+Student belongs to Teacher
+Grade has many students through gradeTable
+Student belongs to grade through gradeTable
+
+Views:
+Log in for teacher and student
+Teacher can add student
+Teacher can her class
+Teacher can see an individual student/edit their grade
+Student can see their grade
+
+Development:
+-Need a seed file for data so we all have the same reference point
