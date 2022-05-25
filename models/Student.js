@@ -3,7 +3,11 @@ const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 const Teacher = require("./Teacher");
 
-class Student extends Model {}
+class Student extends Model {
+  checkPassword(loginPw) {
+    return bcrypt.compareSync(loginPw, this.password);
+  }
+}
 
 Student.init(
   {
