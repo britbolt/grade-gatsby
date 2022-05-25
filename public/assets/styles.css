@@ -1,0 +1,11 @@
+* {
+    background-color: black;
+}
+
+.header {
+    background-image: url("/public/assets/images/eyes.jpg") ;
+}
+
+.body {
+    background-image: url("")
+}
