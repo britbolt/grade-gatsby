@@ -1,11 +1,16 @@
-* {
+html {
     background-color: black;
 }
 
 .header {
-    background-image: url("/public/assets/images/eyes.jpg") ;
+    background: url("/public/assets/images/eyes.jpg"), rgb(57, 51, 51);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+    background-blend-mode: multiply;
 }
 
-.body {
-    background-image: url("")
+.card {
+    width: 150px;
+    display: block; 
 }

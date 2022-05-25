@@ -1,22 +1,27 @@
 const express = require('express');
+const path = require('path');
 const app = express();
-const exphb = require('express-handlebars');
+const { engine } = require('express-handlebars');
+const PORT = 3000;
 
-app.engine('handlebars', exphb({
-    defaultLayout: 'main', 
-    layoutsDir: 'views/layouts'
+
+app.set('view engine', 'handlebars');
+
+app.engine('handlebars', engine( { 
+    layoutsDir: __dirname + '/views'
 }));
 
-app.get('view engine', 'handlebars');
+app.use(express.static(path.join(__dirname)));
+app.use(express.static('files'));
 
 app.get('/', (req, res) => {
-    res.render('index')
+    res.render('layouts/index')
 });
 
 app.get('/login', (req, res) => {
     res.render('login');
 });
 
-app.listen(3001, () => {
-    console.log('Server is start at port', 3001);
+app.listen(PORT, () => {
+    console.log('Server is started at port', PORT);
 });
