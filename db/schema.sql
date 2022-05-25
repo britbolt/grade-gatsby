@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS grade_db;
+
+CREATE DATABASE grade_db;
