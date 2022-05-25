@@ -6,12 +6,11 @@ Requirements:
 -Be deployed using Heroku (with data).
 -Use at least one new library, package, or technology that we haven’t discussed.
 -Have a polished UI.
--Be responsive.
+-Be responsive
 -Be interactive (i.e., accept and respond to user input).
 -Have a folder structure that meets the MVC paradigm.
 -Include authentication (express-session and cookies).
 -Protect API keys and sensitive information with environment variables.
-
 
 theGradeGatsby
 
@@ -30,22 +29,25 @@ Students
 -password
 -teacherId (foreign key)
 
-Grades
--gradeId
--letterGrade
+Subjects
+-id
+-name
 
-classRecord
--gradeId
+grades (studentsSubjects)
+-id
 -studentId
--teacherId
+-subjectId
+-grade
+
+A student has many grades?
 
 
 Associations:
 
 Teacher has many Students
 Student belongs to Teacher
-Grade has many students through gradeTable
-Student belongs to grade through gradeTable
+student belongs to many Subjects through grades
+subject belongs to many students through grades
 
 Views:
 Log in for teacher and student
