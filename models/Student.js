@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
-
 const sequelize = require("../config/connection");
+const bcrypt = require("bcrypt");
 const Teacher = require("./Teacher");
 
 class Student extends Model {
