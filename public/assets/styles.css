@@ -1,8 +1,56 @@
 .header {
-    background: url("/public/assets/images/eyes.jpg"), rgb(57, 51, 51);
+    background: url("/public/assets/images/smear-blackboard.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 200px;
-    background-blend-mode: multiply;
+    height: 15vh;
+    font-family: 'chalkboy';
+    color: #fff;
+    font-size: 7rem;
+    }
+
+
+html  {
+    background: url("/public/assets/images/smear-blackboard.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
 }
 
+.notebook {
+    background: url("/public/assets/images/lined-book.png");
+
+}
+
+@font-face {
+    font-family: 'chalkboy';
+    src: url('/public/assets/fonts/Chalkboy.woff2');
+}
+
+
+.teacher-select {
+    font-family: 'chalkboy';
+    font-size: 6rem;
+    text-decoration: none;
+    color: #fff;
+}
+
+.teacher-select:hover {
+    color: green;
+}
+
+.student-select {
+    font-family: 'chalkboy';
+    font-size: 6rem;
+    text-decoration: none;
+    color: #fff;
+}
+
+.student-select:hover {
+    color: green;
+}
+
+.footer {
+    color:#fff;
+}
