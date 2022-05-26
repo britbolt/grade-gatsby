@@ -38,10 +38,6 @@ app.get("/login-teacher", (req, res) => {
   res.render("login-teacher");
 });
 
-app.listen(PORT, () => {
-  console.log("Server is started at port", PORT);
-});
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
