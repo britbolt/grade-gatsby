@@ -53,7 +53,8 @@ Views:
 Log in for teacher and student
 Teacher can add student
 Teacher can her class
-Teacher can see an individual student/edit their grade
+Teacher can see an individual student with options to edit
+Edit grade 
 Student can see their grade
 
 Development:

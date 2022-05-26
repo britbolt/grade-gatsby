@@ -2,9 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const { engine } = require('express-handlebars');
-const PORT = process.env.PORT || 3000;
-
-
+const PORT = process.env.PORT || 3001;
 
 app.set('view engine', 'handlebars');
 
@@ -38,3 +36,17 @@ app.get('/login-teacher', (req, res) => {
 app.listen(PORT, () => {
     console.log('Server is started at port', PORT);
 });
+=======
+const sequelize = require('./config/connection');
+const { Teacher, Student, Subject } = require('./models');
+
+const app = express();
+const PORT = process.env.PORT || 3001;
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+sequelize.sync({ force: true }).then(() => {
+    console.log("Database connected")
+    app.listen(PORT, () => console.log('Now listening'));
+})l
