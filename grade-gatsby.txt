@@ -29,6 +29,11 @@ Students
 -password
 -teacherId (foreign key)
 
+
+Add student
+Add grade
+Add teacher
+
 Subjects
 -id
 -name
@@ -63,3 +68,7 @@ Development:
 -Teacher Sign up or log in or Student
 -Teacher would to dashboard, which allows views adding
 -Student would dashboard
+
+
+/teacher/login post data dn save session, send a message back
+front end document.replace to dashboard/teacher
