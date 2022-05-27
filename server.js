@@ -4,8 +4,13 @@ const { engine } = require("express-handlebars");
 const PORT = process.env.PORT || 3001;
 const sequelize = require("./config/connection");
 const { Teacher, Student, Subject } = require("./models");
-
+const controllers = require("./controllers");
 const app = express();
+
+// node standard
+// npm
+// local modules
+// middleware before controlllers 
 app.set("view engine", "handlebars");
 
 app.engine(
@@ -18,30 +23,11 @@ app.engine(
 app.use(express.static(path.join(__dirname)));
 app.use(express.static("files"));
 app.use(express.json());
-
-app.post("api/login", (req, res) => {
-  const name = req.body.name,
-    email = req.body.email,
-    password = req.body.password;
-});
-
-app.get("/form", (req, res) => res.render("form"));
-app.get("/", (req, res) => {
-  res.render("layouts/index");
-});
-
-app.get("/home", (req, res) => {
-  res.render("home");
-});
-
-app.get("/login-teacher", (req, res) => {
-  res.render("login-teacher");
-});
-
-app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-sequelize.sync({ force: true }).then(() => {
+app.use(controllers);
+
+sequelize.sync({ force: false }).then(() => {
   console.log("Database connected");
   app.listen(PORT, () => console.log("Now listening"));
 });
