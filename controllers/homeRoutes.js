@@ -8,19 +8,15 @@ router.get("/", (req, res) => {
 
 // redirect to homepage if loggedIn????where does this go?
 router.get("/login-teacher", (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/teacher');
-    return;
-  }
 
-  res.render('login-teacher');
+  res.render("login-teacher");
 });
 router.get("/login-student", (req, res) => {
   res.render("");
 });
 
 // teacher login?????
-router.post("/login-teacher", (req, res) => {
+router.post("/login", (req, res) => {
   Teacher.findOne ({
     where: {
       email: req.body.email
@@ -77,6 +73,13 @@ router.post("/login-teacher", (req, res) => {
     });
   });
 });
+
+
+// post route goes in teacher routes
+// need login file in js takes stuff from form send to teacher /login, sends back to login.js, get route to teacher dashboard 
+// make sure route works first
+
+// document.replace goes to teacher dashboard .get teacher dashboard
 
 
 module.exports = router;
