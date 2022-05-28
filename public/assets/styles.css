@@ -1,22 +1,26 @@
-.header {
-    background: url("/public/assets/images/smear-blackboard.jpg");
+.banner {
+    /* background: url("/public/assets/images/smear-blackboard.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
-    height: 15vh;
+    background-size: cover; */
+    /* height: 15vh; */
     font-family: 'chalkboy';
     color: #fff;
     font-size: 7rem;
     }
 
+    #intro {
+        background-image: url("/public/assets/images/smear-blackboard.jpg");
+        height: 100vh;
+    }
 
-html  {
+/* html  {
     background: url("/public/assets/images/smear-blackboard.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 
-}
+} */
 
 .notebook {
     background: url("/public/assets/images/lined-book.png");

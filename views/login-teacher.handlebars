@@ -1,16 +1,16 @@
-<header><div class="header">Welcome to The Grade Gatsby</div></header>
-
-
-<div class="container">
-    <div class="row align-items-center vh-70">
-        <div class="col-6 mx-auto">
-<div class="card">
+<header>
+  <div id="intro" class="bg-image">
+    <h1 class="banner text-center vh-50 pt-2">Login or Sign Up</h1>
+    
+    <div class="container d-flex justify-content-center align-items-center h-50">
+      <div class="row justify-content-evenly align-items-center">
+        
+        <div class="col">
+<div class="card text-light fw-bold bg-transparent text-secondary border rounded border-5 border-success">
     <div class="card-body">
         <div class="card-header">Please login below</div>
 <form action="/" method="post" role="form">
-    <div>
-        
-    </div>
+    
     <div>
         <label for="name" class="form-name">Name</label>
         <input type="text" class="form-control" id="form-name">
@@ -27,13 +27,47 @@
     <input type="checkbox" class="form-check-input" id="Check1">
     <label class="form-check-label" for="Check1">Remember me</label>
   </div>
-  <button type="submit" class="btn btn-primary" href="/teacher-view-student">Submit</button>
+  <button type="submit" class="btn btn-success" href="/teacher-view-student">Submit</button>
 </form>
  </div>
     </div>
 </div> 
+
+{{!-- <div class="col-lg-1"></div> --}}
+
+ <div class="col">
+<div class="card bg-transparent text-light fw-bold text-secondary border rounded border-5 border-success">
+    <div class="card-body">
+        <div class="card-header">Please sign up below</div>
+<form action="/" method="post" role="form">
+    <div>
+        <label for="name" class="form-name">Name</label>
+        <input type="text" class="form-control" id="form-name">
+    </div>
+  <div class="mb-3">
+    <label for="InputEmail" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp">
+   </div>
+  <div class="mb-3">
+    <label for="InputPassword" class="form-label">Create password</label>
+    <input type="password" class="form-control" id="InputPassword">
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="Check1">
+    <label class="form-check-label" for="Check1">Remember me</label>
+  </div>
+  <button type="submit" class="btn btn-success" href="/teacher-view-student">Submit</button>
+</form>
+ </div>
+    </div>
+</div> 
+
+
 </div>
 </div>
+  </div>
+</header>
+
 
 <div class="container">
     <nav class="navbar navbar-expand-lg fixed-bottom">
