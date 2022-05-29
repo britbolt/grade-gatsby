@@ -1,7 +1,10 @@
 const router = require("express").Router();
 
 router.get("/teacher", (req, res) => {
-  res.render("teacher-edit-grade");
+  if(!req.session.loggedIn) {
+    res.redirect('/');
+  }
+  res.render("login-teacher");
 });
 router.get("/student", (req, res) => {
   res.render("");

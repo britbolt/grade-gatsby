@@ -3,21 +3,21 @@ async function loginFormHandler(event) {
 
     const name = document.querySelectory('#form-name').value.trim();
     const email = document.querySelector('#InputEmail').value.trim();
-    const password = document.querySelector('InputPassword').value.trim();
+    const password = document.querySelector('#InputPassword').value.trim();
 
     if (name && email && password) {
-        const response = await fetch('/login-teacher', {
+        const response = await fetch('/api/teacher/login', {
             method: 'post',
             body: JSON.stringify({
-                name,
                 email,
                 password 
             }),
-            headers: { 'Content-type': 'application/json' }
+            headers: { 'Content-Type': 'application/json' }
         });
+        console.log(response);
 
         if (response.ok) {
-            document.location.replace('/');
+            document.location.replace(response.redirected);
         } else {
             alert(response.statusText);
         }
