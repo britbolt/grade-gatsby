@@ -19,11 +19,11 @@ app.use(express.static(path.join(__dirname)));
 app.use(express.static("files"));
 app.use(express.json());
 
-app.post("api/login", (req, res) => {
-  const name = req.body.name,
-    email = req.body.email,
-    password = req.body.password;
-});
+// app.post("api/login", (req, res) => {
+//   const name = req.body.name,
+//     email = req.body.email,
+//     password = req.body.password;
+// });
 
 app.get("/form", (req, res) => res.render("form"));
 app.get("/", (req, res) => {
@@ -36,6 +36,10 @@ app.get("/home", (req, res) => {
 
 app.get("/login-teacher", (req, res) => {
   res.render("login-teacher");
+});
+
+app.get("/teacher-dashboard", (req, res) => {
+  res.render("teacher-dashboard");
 });
 
 app.use(express.json());
