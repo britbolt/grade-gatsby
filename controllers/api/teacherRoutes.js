@@ -2,13 +2,16 @@ const router = require("express").Router();
 const Teacher = require("../../models/Teacher");
 
 // Add a single teacher
-router.post("/", async (req, res) => {
+router.post("/signup", async (req, res) => {
     try {
       const newTeacher = await Teacher.create({
         name: req.body.name,
         email: req.body.email,
         password: req.body.password,
       });
+
+      // not sure if teacher id and username is approprite for this
+      // just followed module so ¯\_(ツ)_/¯
       req.session.save(() => {
         req.session.teacher_id = newTeacher.id;
         req.session.username = newTeacher.username;
@@ -17,8 +20,9 @@ router.post("/", async (req, res) => {
         res.redirect('/dashboard/teacher');
         })
 
-// where does this res.json go??outside or inside or redirect instead inside bracket??
-      res.json(newTeacher);
+// where does this res.json go??
+// jk only works with res.json commented out, with res.redirect instead
+      // res.json(newTeacher);
     } catch (err) {
       console.log(err.message);
       res.sendStatus(500)
