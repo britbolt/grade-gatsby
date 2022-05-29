@@ -37,9 +37,16 @@ app.get("/home", (req, res) => {
 app.get("/login-teacher", (req, res) => {
   res.render("login-teacher");
 });
+app.get("/login-student", (req, res) => {
+  res.render("login-student");
+});
 
 app.get("/teacher-dashboard", (req, res) => {
   res.render("teacher-dashboard");
+});
+
+app.get("/student-dashboard", (req, res) => {
+  res.render("student-dashboard");
 });
 
 app.use(express.json());

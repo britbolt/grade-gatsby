@@ -8,6 +8,12 @@
     font-size: 7rem;
     }
 
+    .banner-md {
+        font-family: 'chalkboy';
+        color: #fff;
+        font-size: 4rem;
+    }
+
     #intro {
         background-image: url("/public/assets/images/smear-blackboard.jpg");
         height: 100vh;
