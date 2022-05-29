@@ -8,7 +8,16 @@ router.post("/", async (req, res) => {
         name: req.body.name,
         email: req.body.email,
         password: req.body.password,
-      })
+      });
+      req.session.save(() => {
+        req.session.teacher_id = newTeacher.id;
+        req.session.username = newTeacher.username;
+        req.session.loggedIn = true;
+  
+        res.redirect('/dashboard/teacher');
+        })
+
+// where does this res.json go??outside or inside or redirect instead inside bracket??
       res.json(newTeacher);
     } catch (err) {
       console.log(err.message);
@@ -16,7 +25,7 @@ router.post("/", async (req, res) => {
     }
   });
 
-  // teacher login?????
+  // teacher login
 router.post("/login", (req, res) => {
   console.log(req.body.email);
   Teacher.findOne ({
