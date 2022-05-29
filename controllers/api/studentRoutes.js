@@ -13,6 +13,7 @@ router.post("/", async (req, res) => {
     res.json(newStudent);
   } catch (err) {
     console.log(err.message);
+    res.sendStatus(500);
   }
 });
 
