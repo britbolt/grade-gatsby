@@ -1,19 +1,18 @@
 <header>
   <div id="intro" class="bg-image">
-    <h1 class="banner text-center vh-50 pt-2">Welcome Teacher!</h1>
-     <br>
+    <h1 class="banner text-center vh-50 pt-2">Welcome Student!</h1>
+    <br>
     <h3 class="banner-md text-center vh-25 pt-2">Login or Sign Up Below</h3> 
-
     
-    <div class="container d-flex justify-content-center align-items-center h-50">
+    <div class="container d-flex justify-content-center align-items-center vh-50">
       <div class="row gx-5 pt-5 justify-content-evenly align-items-center">
         
         <div class="col">
 <div class="card text-light fw-bold bg-transparent text-secondary border rounded border-5 border-success">
     <div class="card-body">
         <div class="card-header">Please login below</div>
-
-<form action="/" method="post" role="form" class="login-form">
+<form action="/" method="post" role="form">
+    
     <div>
         <label for="name" class="form-name">Name</label>
         <input type="text" class="form-control" id="form-name">
@@ -30,7 +29,7 @@
     <input type="checkbox" class="form-check-input" id="Check1">
     <label class="form-check-label" for="Check1">Remember me</label>
   </div>
-  <button type="submit" class="btn btn-success" href="/teacher-view-student">Submit</button>
+  <button type="submit" class="btn btn-success" href="/">Submit</button>
 </form>
  </div>
     </div>
@@ -59,7 +58,7 @@
     <input type="checkbox" class="form-check-input" id="Check1">
     <label class="form-check-label" for="Check1">Remember me</label>
   </div>
-  <button type="submit" class="btn btn-success" href="/teacher-view-student">Submit</button>
+  <button type="submit" class="btn btn-success" href="/">Submit</button>
 </form>
  </div>
     </div>
@@ -72,10 +71,7 @@
 </header>
 
 
-<div class="container">
-    <nav class="navbar navbar-expand-lg fixed-bottom">
-        <a class="navbar-brand footer" href="/">Privacy Policy</a>
+
+    <nav class="navbar navbar-expand-lg sticky-bottom">
+        <a class="navbar-brand footer text-light" href="/">Privacy Policy</a>
     </nav>
-</div>
-{{!-- okay link?? --}}
-<script src="/javascript/login.js"></script>
