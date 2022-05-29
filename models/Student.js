@@ -22,7 +22,6 @@ Student.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -31,7 +30,6 @@ Student.init(
         isEmail: true,
       },
     },
-
     password: {
       type: DataTypes.STRING,
       allowNull: false,
