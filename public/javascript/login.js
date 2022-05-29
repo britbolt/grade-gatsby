@@ -32,7 +32,7 @@ async function signupFormHandler(event) {
     const password = document.querySelector('#InputPassword').value.trim();
 
     if (name && email && password) {
-        const response = await fetch('/api/teacher/login', {
+        const response = await fetch('/api/teacher/signup', {
             method: 'post',
             body: JSON.stringify({
                 name,
