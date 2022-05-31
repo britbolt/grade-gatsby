@@ -7,7 +7,7 @@ Requirements:
 -Use at least one new library, package, or technology that we haven’t discussed.
 -Have a polished UI.
 -Be responsive
--Be interactive (i.e., accept and respond to user input).
+-Be interactive (i.e., accept and respond to user input)
 -Have a folder structure that meets the MVC paradigm.
 -Include authentication (express-session and cookies).
 -Protect API keys and sensitive information with environment variables.
@@ -28,6 +28,11 @@ Students
 -email
 -password
 -teacherId (foreign key)
+
+
+Add student
+Add grade
+Add teacher
 
 Subjects
 -id
@@ -50,12 +55,20 @@ student belongs to many Subjects through grades
 subject belongs to many students through grades
 
 Views:
-Log in for teacher and student
-Teacher can add student
-Teacher can her class
-Teacher can see an individual student with options to edit
-Edit grade 
-Student can see their grade
+Home Teacher or student? "/" 
+Log in sign up Teacher "/login-teacher" (add student API?)
+Log in sign up Student "/login-student"
+Teacher dashboard (new student button that makes form exist) (students will also be clickable) "/teacher" *****
+Student dashboard "/student" *****
 
 Development:
 -Need a seed file for data so we all have the same reference point
+
+- Home- student or teacher
+-Teacher Sign up or log in or Student
+-Teacher would to dashboard, which allows views adding
+-Student would dashboard
+
+
+/teacher/login post data dn save session, send a message back
+front end document.replace to dashboard/teacher

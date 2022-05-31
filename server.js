@@ -1,11 +1,30 @@
 const express = require("express");
 const path = require("path");
 const { engine } = require("express-handlebars");
+// require session and session seqeulize
+const session = require("express-session");
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const PORT = process.env.PORT || 3001;
 const sequelize = require("./config/connection");
 const { Teacher, Student, Subject } = require("./models");
-
+const controllers = require("./controllers");
 const app = express();
+
+// secret needs to be actual secret and stored in .env??
+const sess = {
+  secret: 'This is a secret',
+  cookie: {},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+}
+
+// node standard
+// npm
+// local modules
+// middleware before controlllers 
 app.set("view engine", "handlebars");
 
 app.engine(
@@ -18,41 +37,13 @@ app.engine(
 app.use(express.static(path.join(__dirname)));
 app.use(express.static("files"));
 app.use(express.json());
-
-// app.post("api/login", (req, res) => {
-//   const name = req.body.name,
-//     email = req.body.email,
-//     password = req.body.password;
-// });
-
-app.get("/form", (req, res) => res.render("form"));
-app.get("/", (req, res) => {
-  res.render("layouts/index");
-});
-
-app.get("/home", (req, res) => {
-  res.render("home");
-});
-
-app.get("/login-teacher", (req, res) => {
-  res.render("login-teacher");
-});
-app.get("/login-student", (req, res) => {
-  res.render("login-student");
-});
-
-app.get("/teacher-dashboard", (req, res) => {
-  res.render("teacher-dashboard");
-});
-
-app.get("/student-dashboard", (req, res) => {
-  res.render("student-dashboard");
-});
-
-app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// use session
+app.use(session(sess));
 
-sequelize.sync({ force: true }).then(() => {
+app.use(controllers);
+
+sequelize.sync({ force: false }).then(() => {
   console.log("Database connected");
   app.listen(PORT, () => console.log("Now listening"));
 });
