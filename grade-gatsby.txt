@@ -55,11 +55,11 @@ student belongs to many Subjects through grades
 subject belongs to many students through grades
 
 Views:
-Home Teacher or student? "/"
+Home Teacher or student? "/" 
 Log in sign up Teacher "/login-teacher" (add student API?)
 Log in sign up Student "/login-student"
-Teacher dashboard (new student button that makes form exist) (students will also be clickable) "/teacher"
-Student dashboard "/student"
+Teacher dashboard (new student button that makes form exist) (students will also be clickable) "/teacher" *****
+Student dashboard "/student" *****
 
 Development:
 -Need a seed file for data so we all have the same reference point

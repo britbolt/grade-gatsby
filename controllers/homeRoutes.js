@@ -11,7 +11,7 @@ router.get("/login-teacher", (req, res) => {
   res.render("login-teacher");
 });
 router.get("/login-student", (req, res) => {
-  res.render("");
+  res.render("login-student");
 });
 
 // student login?????

@@ -10,12 +10,24 @@ html {
     color: #fff;
     font-size: 7rem;
     }
-
-    .banner-md {
-        font-family: 'chalkboy';
-        color: #fff;
-        font-size: 4rem;
+@media only screen and (max-width: 645px) {
+    .banner {
+        font-size: 3rem;
+        margin-bottom: 0!important;
     }
+    .banner-md {
+        font-size: 2rem!important;
+        margin: 0;
+    }
+    .teacher-select, .student-select {
+        font-size: 2rem!important;
+    }
+}
+.banner-md {
+    font-family: 'chalkboy';
+    color: #fff;
+    font-size: 4rem;
+}
 
     body {
         background-image: url("/public/assets/images/smear-blackboard.jpg");
