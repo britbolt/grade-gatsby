@@ -1,6 +1,6 @@
 <header>
     <div id="intro" class="bg-image">
-    <h1 class="banner text-center vh-50 pt-2">Your Students</h1>
+    <h1 class="banner text-center vh-50 pt-2">Your Grades</h1>
    <div id="toolbar">
   <button id="remove" class="btn btn-danger" disabled>
     <i class="fa fa-trash"></i> Delete
@@ -18,12 +18,12 @@
    
     <thead class="align-items-center">
       <tr class="align-items-center">
-        <th scope="col" data-field="id" data-sortable="true" data-align="center">Student Names</th>
-        <th scope="col" data-field="name" data-editable="true">Math</th>
-        <th scope="col" data-field="name" data-editable="true">Science</th>
-        <th scope="col" data-field="name" data-editable="true">Spanish</th>
-        <th scope="col" data-field="name" data-editable="true">Geography</th>
-        <th scope="col" data-field="name" data-editable="true">English</th>
+        <th scope="col" data-field="id" data-sortable="true" data-align="center">Classes</th>
+        <th scope="col" data-field="name" data-editable="false">Math</th>
+        <th scope="col" data-field="name" data-editable="false">Science</th>
+        <th scope="col" data-field="name" data-editable="false">Spanish</th>
+        <th scope="col" data-field="name" data-editable="false">Geography</th>
+        <th scope="col" data-field="name" data-editable="false">English</th>
 
         {{!-- <th class="col-md-7" data-field="description" data-editable="true" data-editable-emptytext="Custom empty text.">Description</th> --}}
       </tr>
@@ -31,7 +31,7 @@
 
       <tbody>
       <tr>
-          <th scope="row"  data-field="name" data-sortable="true" data-align="center">Brittany B</th>
+          <th scope="row"  data-field="name" data-sortable="true" data-align="center"></th>
           <td data-field="math-grade" data-sortable="true" data-align="center">B+</td>
            <td data-field="science-grade" data-sortable="true" data-align="center">B+</td>
             <td data-field="spanish-grade" data-sortable="true" data-align="center">B+</td>
@@ -41,7 +41,9 @@
     </tbody>
   </table>
 
-        <h1 class="banner text-center vh-50 pt-2">Your Students</h1>
-        <table id="table" class="teacher-table"></table
     </div>
 </header>
+
+ <nav class="navbar navbar-expand-lg sticky-bottom">
+        <a class="navbar-brand footer text-light" href="/">Privacy Policy</a>
+    </nav>
