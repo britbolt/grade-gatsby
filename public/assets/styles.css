@@ -14,11 +14,13 @@
         font-size: 4rem;
     }
 
-    #intro {
+    body {
         background-image: url("/public/assets/images/smear-blackboard.jpg");
+        overflow: auto;
+        overscroll-behavior: none;
         height: 100vh;
     }
-
+    
 /* html  {
     background: url("/public/assets/images/smear-blackboard.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
