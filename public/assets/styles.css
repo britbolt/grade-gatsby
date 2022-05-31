@@ -1,3 +1,6 @@
+html {
+    padding-bottom: 4rem;
+}
 .banner {
     /* background: url("/public/assets/images/smear-blackboard.jpg");
     background-repeat: no-repeat;
@@ -14,11 +17,15 @@
         font-size: 4rem;
     }
 
-    #intro {
+    body {
         background-image: url("/public/assets/images/smear-blackboard.jpg");
-        height: 100vh;
+        overflow: auto;
+        overscroll-behavior: none;
+        min-height: 100vh;
+        background-size: cover;
+        background-attachment: fixed;
     }
-
+    
 /* html  {
     background: url("/public/assets/images/smear-blackboard.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
