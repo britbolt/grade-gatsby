@@ -1,8 +1,14 @@
+const errorSignUp = document.getElementById("errorSignUp")
+const errorLogIn = document.getElementById("errorLogIn")
 async function loginFormHandler(event) {
   event.preventDefault();
   const email = document.querySelector("#studentEmail").value;
   const password = document.querySelector("#studentPassword").value;
-  if (email && password) {
+
+  if (!email || !password) {
+    errorLogIn.textContent = "Please fill out all fields!"
+    return
+  }
     const response = await fetch("/api/student/login", {
       method: "post",
       body: JSON.stringify({
@@ -16,8 +22,8 @@ async function loginFormHandler(event) {
       document.location.replace("/dashboard/student");
     } else {
       console.log(response.statusText);
+      errorLogIn.textContent = "Something went wrong"
     }
-  }
 }
 
 async function signupFormHandler(event) {
@@ -28,6 +34,11 @@ async function signupFormHandler(event) {
   //getting data inside FormData
   const entries = signUpForm.entries();
   const data = Object.fromEntries(entries);
+
+  if (!data.signUpName || !data.signUpEmail || !data.signUpPassword) {
+    errorSignUp.textContent = "Please fill out all fields!"
+    return
+  }
   const response = await fetch("/api/student/signup", {
     method: "post",
     body: JSON.stringify(data),
@@ -37,6 +48,7 @@ async function signupFormHandler(event) {
     document.location.replace("/dashboard/student");
   } else {
     console.log(response.statusText);
+    errorSignUp.textContent = "Something went wrong"
   }
 }
 

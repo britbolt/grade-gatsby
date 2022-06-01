@@ -9,18 +9,15 @@
       <div class="card text-light fw-bold bg-transparent text-secondary border rounded border-5 border-success">
         <div class="card-body">
         <div class="card-header">Please login below</div>
+        <p class = "error text-danger" id="errorLogIn"></p>
         <form>    
           <div class="mb-3">
             <label for="InputEmail" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="studentEmail" aria-describedby="emailHelp">
+            <input type="email" class="form-control" name="studentEmail" id="studentEmail" aria-describedby="emailHelp">
           </div>
           <div class="mb-3">
             <label for="InputPassword" class="form-label">Password</label>
-            <input type="password" class="form-control" id="studentPassword">
-          </div>
-          <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="Check1">
-            <label class="form-check-label" for="Check1">Remember me</label>
+            <input type="password" class="form-control" autocomplete="off" id="studentPassword" name="studentPassword">
           </div>
           <button type="submit" class="btn btn-success" id="login-student">Submit</button>
         </form>
@@ -32,6 +29,7 @@
       <div class="card bg-transparent text-light fw-bold text-secondary border rounded border-5 border-success">
       <div class="card-body">
         <div class="card-header">Please sign up below</div>
+        <p class = "error text-danger" id="errorSignUp"></p>
         <form id="signUp">
           <div>
             <label for="signUpName" class="form-name">Name</label>
@@ -43,11 +41,7 @@
           </div>
           <div class="mb-3">
             <label for="signUpPassword" class="form-label">Create password</label>
-            <input type="password" class="form-control" id="signUpPassword" name="signUpPassword">
-          </div>
-          <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="Check1">
-            <label class="form-check-label" for="Check2">Remember me</label>
+            <input type="password" class="form-control" id="signUpPassword" autocomplete="off" name="signUpPassword">
           </div>
           <div class="mb-3 p-0 form-check">
              <label for="teacher" class="form-label">Teacher name:</label>
