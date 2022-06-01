@@ -17,7 +17,7 @@ router.post("/signup", async (req, res) => {
         req.session.username = newTeacher.username;
         req.session.loggedIn = true;
   
-        res.redirect('/dashboard/teacher');
+        res.redirect('/teacher-dashboard');
         })
 
 // where does this res.json go??
@@ -56,7 +56,7 @@ router.post("/login", (req, res) => {
       req.session.username = teacherLoginData.username;
       req.session.loggedIn = true;
 
-      res.redirect('/dashboard/teacher');
+      res.redirect('/teacher-dashboard');
 
       // res.json({ user: teacherLoginData, message: 'Logged in' });
     });

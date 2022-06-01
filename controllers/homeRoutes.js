@@ -14,6 +14,9 @@ router.get("/login-student", (req, res) => {
   res.render("login-student");
 });
 
+router.get("/teacher-view-student", (req, res) => {
+  res.render("teacher-view-student");
+})
 // student login?????
 // router.post("/login-teacher", (req, res) => {
 //   Student.findOne ({
