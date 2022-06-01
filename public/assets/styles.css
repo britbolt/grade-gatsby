@@ -30,7 +30,7 @@ html {
 }
 
     body {
-        background-image: url("/public/assets/images/smear-blackboard.jpg");
+        background-image: url("/assets/images/smear-blackboard.jpg");
         overflow: auto;
         overscroll-behavior: none;
         min-height: 100vh;
@@ -48,13 +48,13 @@ html {
 } */
 
 .notebook {
-    background: url("/public/assets/images/lined-book.png");
+    background: url("/assets/images/lined-book.png");
 
 }
 
 @font-face {
     font-family: 'chalkboy';
-    src: url('/public/assets/fonts/Chalkboy.woff2');
+    src: url('/assets/fonts/Chalkboy.woff2');
 }
 
 
