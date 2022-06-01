@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { Teacher } = require("../../models");
 const Student = require("../../models/Student");
 
 router.post("/login", async (req, res) => {
@@ -36,15 +37,12 @@ router.post("/login", async (req, res) => {
 
 // Add a single student/sign up
 router.post("/signup", async (req, res) => {
-// There needs to be a route here that searches for teachers that have this student name
-
-
   try {
     const newStudent = await Student.create({
-      name: req.body.name,
-      email: req.body.email,
-      password: req.body.password,
-      teacher_id: req.body.teacherId,
+      name: req.body.signUpName,
+      email: req.body.signUpEmail,
+      password: req.body.signUpPassword,
+      teacher_id: req.body.teacher,
     });
     req.session.save(() => {
       (req.session.user_id = newStudent.id),
