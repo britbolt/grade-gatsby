@@ -1,55 +1,53 @@
 async function loginFormHandler(event) {
-    event.preventDefault();
+  event.preventDefault();
+  const email = document.querySelector(".login-email").value;
+  const password = document.querySelector("#InputPassword").value;
 
-    const name = document.querySelectory('#form-name').value.trim();
-    const email = document.querySelector('#InputEmail').value.trim();
-    const password = document.querySelector('#InputPassword').value.trim();
+  if (email && password) {
+    const response = await fetch("/api/teacher/login", {
+      method: "post",
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+      headers: { "Content-Type": "application/json" },
+    });
 
-    if (name && email && password) {
-        const response = await fetch('/api/teacher/login', {
-            method: 'post',
-            body: JSON.stringify({
-                email,
-                password 
-            }),
-            headers: { 'Content-Type': 'application/json' }
-        });
-        console.log(response);
-
-        if (response.ok) {
-            document.location.replace(response.redirected);
-        } else {
-            alert(response.statusText);
-        }
+    if (response.ok) {
+      document.location.replace("/dashboard/teacher");
+    } else {
+      console.log(response.statusText);
     }
+  }
 }
 
 async function signupFormHandler(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const name = document.querySelectory('#form-name').value.trim();
-    const email = document.querySelector('#InputEmail').value.trim();
-    const password = document.querySelector('#InputPassword').value.trim();
+  const name = document.querySelector("#TeacherName").value
+  const email = document.querySelector("#TeacherEmail").value
+  const password = document.querySelector("#TeacherPassword").value;
 
-    if (name && email && password) {
-        const response = await fetch('/api/teacher/signup', {
-            method: 'post',
-            body: JSON.stringify({
-                name,
-                email,
-                password 
-            }),
-            headers: { 'Content-Type': 'application/json' }
-        });
-        console.log(response);
+  if (name && email && password) {
+    const response = await fetch("/api/teacher/signup", {
+      method: "post",
+      body: JSON.stringify({
+        name,
+        email,
+        password,
+      }),
+      headers: { "Content-Type": "application/json" },
+    });
 
-        if (response.ok) {
-            document.location.replace(response.redirected);
-        } else {
-            alert(response.statusText);
-        }
+    if (response.ok) {
+      document.location.replace("/dashboard/teacher");
+    } else {
+      console.log(response.statusText);
     }
+  }
 }
 
-document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
-document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+document
+  .querySelector(".login-form")
+  .addEventListener("click", loginFormHandler);
+document.querySelector('#sign-up').addEventListener('click', signupFormHandler);
