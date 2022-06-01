@@ -1,8 +1,10 @@
+const { Teacher } = require("../models");
+
 const router = require("express").Router();
 
 router.get("/teacher", (req, res) => {
-  if(!req.session.loggedIn) {
-    res.redirect('/');
+  if (!req.session.loggedIn) {
+    res.redirect("/");
   }
   res.render("teacher-dashboard");
 });
