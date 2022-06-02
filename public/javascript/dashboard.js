@@ -1,9 +1,8 @@
-const $ = require( "jquery" );
-
-
+$(function() {
 var $TABLE = $('#table');
 var $BTN = $('#save-btn');
 var $SAVE= $('#save');
+
 
 $('.table-add').on("click", function () {
   var $clone = $TABLE.find('tr.hide').clone(true).removeClass('hide table-line');
@@ -15,18 +14,19 @@ $('.table-remove').on("click",function () {
 });
 
 
-// A few jQuery helpers for exporting only
+//jQuery helpers for exporting
 jQuery.fn.pop = [].pop;
 jQuery.fn.shift = [].shift;
 
 $BTN.on("click", function () {
   var $rows = $TABLE.find('tr:not(:hidden)');
-  var headers = [];
-  var data = [];
+  var grades = [$rows.find('td:not(:hidden)')];
+  var students = [$rows.find('th.student-name:not(:hidden)')];
+
   
-  // Get the headers (add special header logic here)
+  // Get the subjects
   $($rows.shift()).find('th:not(:empty)').each(function () {
-    headers.push($(this).text().toLowerCase());
+    grades.push($(this).text().toLowerCase());
   });
   
   // Turn all existing rows into a loopable array
@@ -34,14 +34,15 @@ $BTN.on("click", function () {
     var $td = $(this).find('td');
     var h = {};
     
-    // Use the headers from earlier to name our hash keys
-    headers.forEach(function (header, i) {
-      h[header] = $td.eq(i).text();   
+    grades.forEach(function (grades, i) {
+    h[grades] = $td.eq(i).text();   
     });
     
-    data.push(h);
+    students.push(h);
   });
   
-  // Output the result
-  $SAVE.text(JSON.stringify(data));
+  // Output the result to page for now, need to update to output to update db
+  $SAVE.text(JSON.stringify(students));
 });
+});
+

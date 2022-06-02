@@ -80,6 +80,11 @@ html {
     color: green;
 }
 
+#table {
+    width:75%;
+    
+}
+
 .table-editable {
     position: relative;
 }
