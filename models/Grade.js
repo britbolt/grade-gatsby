@@ -7,6 +7,12 @@ class Grade extends Model {}
 
 Grade.init(
   {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
     grade: {
       type: DataTypes.INTEGER,
     },
