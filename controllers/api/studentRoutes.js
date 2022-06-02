@@ -1,6 +1,5 @@
 const router = require("express").Router();
-const { Teacher } = require("../../models");
-const Student = require("../../models/Student");
+const { Teacher, Grade, Student } = require("../../models");
 
 router.post("/login", async (req, res) => {
   console.log(req.body);
@@ -57,6 +56,23 @@ router.post("/signup", async (req, res) => {
     console.log(err.message);
     res.sendStatus(500);
   }
+});
+
+
+router.get('/:id', (req, res) => {
+  Student.findOne({
+    where: {
+      id: req.params.id
+    },
+    include: {
+      model: Grade
+    }
+  })
+  .then(dbStudentData => res.json(dbStudentData))
+  .catch(err => {
+    console.log(err);
+    res.status(500).json({ message: 'you still did something wrong' });
+  });
 });
 
 module.exports = router;
