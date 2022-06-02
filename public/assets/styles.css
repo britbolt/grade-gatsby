@@ -80,6 +80,10 @@ html {
     color: green;
 }
 
+.table-editable {
+    position: relative;
+}
+
 .footer {
     color:#fff;
 }

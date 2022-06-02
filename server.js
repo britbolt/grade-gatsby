@@ -10,6 +10,7 @@ const { Teacher, Student, Subject } = require("./models");
 const controllers = require("./controllers");
 const app = express();
 
+
 // secret needs to be actual secret and stored in .env??
 const sess = {
   secret: 'This is a secret',
