@@ -30,4 +30,13 @@ Subject.belongsToMany(Student, {
   },
 });
 
+
+Student.hasMany(Grade);
+
+Grade.belongsTo(Student);
+
+// Student.belongsToMany(Grade);
+
+// Grade.hasOne(Student);
+
 module.exports = { Teacher, Student, Subject, Grade };

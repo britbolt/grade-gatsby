@@ -1,5 +1,4 @@
 const express = require("express");
-const path = require("path");
 const { engine } = require("express-handlebars");
 // require session and session seqeulize
 const session = require("express-session");
@@ -35,8 +34,7 @@ app.engine(
   })
 );
 
-app.use(express.static(path.join(__dirname)));
-app.use(express.static("files"));
+app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // use session

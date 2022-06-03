@@ -10,17 +10,19 @@ router.get("/", (req, res) => {
 router.get("/login-teacher", (req, res) => {
   res.render("login-teacher");
 });
-router.get("/login-student", (req, res) => {
-  res.render("login-student");
+router.get("/login-student", async (req, res) => {
+  const allTeachers = await Teacher.findAll({
+    attributes: ["id", "name"],
+    raw: true,
+  });
+  res.render("login-student", { allTeachers });
 });
 
 router.get("/teacher-view-student", (req, res) => {
   res.render("teacher-view-student");
 })
 
-router.get("/teacher-dashboard", (req, res) => {
-  res.render("teacher-dashboard");
-})
+
 // student login?????
 // router.post("/login-teacher", (req, res) => {
 //   Student.findOne ({
@@ -40,7 +42,7 @@ router.get("/teacher-dashboard", (req, res) => {
 //       res.status(400).json({ message: 'Invalid password' });
 //     }
 
-//     // username??? 
+//     // username???
 //     req.session.save(() => {
 //       req.session.student_id = studentLoginData.id;
 //       req.session.username = studentLoginData.username;
@@ -51,12 +53,10 @@ router.get("/teacher-dashboard", (req, res) => {
 //   });
 // });
 
-
 // post route goes in teacher routes
-// need login file in js takes stuff from form send to teacher /login, sends back to login.js, get route to teacher dashboard 
+// need login file in js takes stuff from form send to teacher /login, sends back to login.js, get route to teacher dashboard
 // make sure route works first
 
 // document.replace goes to teacher dashboard .get teacher dashboard
-
 
 module.exports = router;
