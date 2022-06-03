@@ -23,6 +23,10 @@ html {
         font-size: 2rem!important;
     }
 }
+.hide {
+    display: none
+}
+
 .banner-md {
     font-family: 'chalkboy';
     color: #fff;
@@ -78,6 +82,15 @@ html {
 
 .student-select:hover {
     color: green;
+}
+
+#table {
+    width:75%;
+    
+}
+
+.table-editable {
+    position: relative;
 }
 
 .footer {

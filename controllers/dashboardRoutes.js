@@ -8,6 +8,7 @@ router.get("/teacher", (req, res) => {
   }
   res.render("teacher-dashboard");
 });
+
 router.get("/student", (req, res) => {
   res.render("student-dashboard");
 });

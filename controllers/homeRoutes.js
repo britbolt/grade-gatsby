@@ -18,6 +18,11 @@ router.get("/login-student", async (req, res) => {
   res.render("login-student", { allTeachers });
 });
 
+router.get("/teacher-view-student", (req, res) => {
+  res.render("teacher-view-student");
+})
+
+
 // student login?????
 // router.post("/login-teacher", (req, res) => {
 //   Student.findOne ({
