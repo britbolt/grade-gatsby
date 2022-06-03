@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { Student, Grade } = require("../../models");
 const Teacher = require("../../models/Teacher");
 
 // Add a single teacher
@@ -57,6 +58,25 @@ router.post("/login", (req, res) => {
       console.log(err);
       res.sendStatus(500);
     });
+});
+
+router.get('/:id', (req, res) => {
+  Teacher.findOne({
+    where: {
+      id: req.params.id
+    },
+    include: {
+      model: Student,
+      include: {
+        model: Grade
+      }
+    }
+  })
+  .then(dbTeacherData => res.json(dbTeacherData))
+  .catch(err => {
+    console.log(err);
+    res.status(500).json({ message: 'no' });
+  });
 });
 
 module.exports = router;
