@@ -43,13 +43,22 @@
                     </tr>
     </tbody>
   </table>
-
-
-
-       
-        
     </div>
     <button id="save-btn" class="btn btn-primary">Save</button>
     <p id="save"></p>
+
+<div class="d-flex align-items-center flex-column">
+    {{#each news as |article|}}
+    <article class="d-flex border border-light rounded">
+    <p class="title text-light">{{article.title}}</p>
+    <div class="article-flex d-flex align-items-center">
+    <img class="article-image me-3" src="{{article.urlToImage}}" alt="article photo">
+    <p class="description text-light">{{article.description}}</p>
+    </div>
+    </article>
+    {{/each}}
+</div>
+       
+        
 
 
