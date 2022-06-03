@@ -1,12 +1,17 @@
 const { Teacher } = require("../models");
-
+const fetch = require("node-fetch");
 const router = require("express").Router();
 
-router.get("/teacher", (req, res) => {
+router.get("/teacher", async (req, res) => {
   if (!req.session.loggedIn) {
     res.redirect("/");
   }
-  res.render("teacher-dashboard");
+  const educationNewsData = await fetch(
+    "https://newsapi.org/v2/everything?q=-sex+education&searchIn=title&pageSize=5&language=en&apiKey=083ffbf1761c458b81f59e2dc1483a68"
+  );
+  const news = await educationNewsData.json();
+  console.log(news.articles[0]);
+  res.render("teacher-dashboard", { news: news.articles });
 });
 
 router.get("/student", (req, res) => {
