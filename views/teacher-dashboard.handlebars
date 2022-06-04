@@ -5,7 +5,7 @@
 </header>
 
 <div id="table container" class="text-center">
-    <table class="table text-light table-hover">
+    <table class="table text-light">
         <thead class="align-items-center">
             <tr class="align-items-center">
                 <th class="subject-headers" scope="row" contenteditable="false"></th>
@@ -23,13 +23,12 @@
                 {{#each grades}}
                 <td contenteditable="true">{{grade}}</td>
                 {{/each}}
+                <td><i class="bi bi-save"></i></td>
             </tr>
             {{/each}}
     </tbody>
   </table>
-    </div>
-    <button id="save-btn" class="btn btn-primary">Save</button>
-    <p id="save"></p>
+</div>
 
 
 <div class="d-flex align-items-center flex-column">
