@@ -20,12 +20,8 @@
             {{#each studentData as |student|}}
             <tr class="align-items-center">
                 <th scope="row" class="student-name subject-headers" contenteditable="true">{{student.name}}</th>
-                {{#each this.grades}}
-                <td contenteditable="true">{{this.grade}}</td>
-                <td contenteditable="true">A</td>
-                <td contenteditable="true">A</td>
-                <td contenteditable="true">B</td>
-                <td contenteditable="true">A</td>
+                {{#each grades}}
+                <td contenteditable="true">{{grade}}</td>
                 {{/each}}
             </tr>
             {{/each}}
