@@ -60,23 +60,4 @@ router.post("/login", (req, res) => {
     });
 });
 
-router.get('/:id', (req, res) => {
-  Teacher.findOne({
-    where: {
-      id: req.params.id
-    },
-    include: {
-      model: Student,
-      include: {
-        model: Grade
-      }
-    }
-  })
-  .then(dbTeacherData => res.json(dbTeacherData))
-  .catch(err => {
-    console.log(err);
-    res.status(500).json({ message: 'no' });
-  });
-});
-
 module.exports = router;
