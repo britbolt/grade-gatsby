@@ -5,7 +5,9 @@ router.post("/login", async (req, res) => {
   console.log(req.body);
   try {
     const loggedInStudent = await Student.findOne({
-      email: req.body.email,
+      where: {
+        email: req.body.email,
+      },
     });
 
     if (!loggedInStudent) {

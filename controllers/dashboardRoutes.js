@@ -13,19 +13,20 @@ router.get("/teacher", async (req, res) => {
       },
       include: {
         model: Grade,
-        order: ["subject_id"]
+        order: ["subject_id"],
       },
     });
 
-    const parsedDashboardData = dashboardData.map((student) => student.get({ plain: true }));
-    console.log(parsedDashboardData[0]);
-  //   const educationNewsData = await fetch(
-  //    "https://newsapi.org/v2/everything?q=-sex+education&searchIn=title&pageSize=5&language=en&apiKey=083ffbf1761c458b81f59e2dc1483a68"
-  //   );
-  //   const news = await educationNewsData.json();
-  //  console.log(news.articles[0]);
+    const parsedDashboardData = dashboardData.map((student) =>
+      student.get({ plain: true })
+    );
+    const educationNewsData = await fetch(
+      "https://newsapi.org/v2/everything?q=-sex+education&searchIn=title&pageSize=5&language=en&apiKey=083ffbf1761c458b81f59e2dc1483a68"
+    );
+    const news = await educationNewsData.json();
+
     res.render("teacher-dashboard", {
-      //news: news.articles,
+      news: news.articles,
       studentData: parsedDashboardData,
     });
   } catch (err) {
@@ -34,8 +35,24 @@ router.get("/teacher", async (req, res) => {
   }
 });
 
-router.get("/student", (req, res) => {
-  res.render("student-dashboard");
+router.get("/student", async (req, res) => {
+  console.log(req.session.user_id)
+  try {
+    const studentData = await Student.findOne({
+      where: {
+        id: req.session.user_id,
+      },
+      include: {
+        model: Grade,
+        order: ["subject_id"],
+      },
+    });
+    const parsedStudentData = studentData.get({ plain: true })
+    console.log(parsedStudentData);
+    res.render("student-dashboard", { parsedStudentData });
+  } catch (err) {
+    console.log(err.message);
+  }
 });
 
 module.exports = router;
