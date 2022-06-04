@@ -39,7 +39,27 @@ const gradeData = [
   {
     grade: 90,
     student_id: 4,
+    subject_id: 4,
+  },
+  {
+    grade: 90,
+    student_id: 4,
+    subject_id: 2,
+  },
+  {
+    grade: 90,
+    student_id: 4,
+    subject_id: 1,
+  },
+  {
+    grade: 90,
+    student_id: 4,
     subject_id: 3,
+  },
+  {
+    grade: 90,
+    student_id: 4,
+    subject_id: 5,
   },
 ];
 
