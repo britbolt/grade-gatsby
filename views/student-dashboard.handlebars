@@ -9,24 +9,19 @@
         <thead class="align-items-center">
             <tr class="align-items-center">
                 <th class="subject-headers" scope="row" contenteditable="false"></th>
-                <th class="subject-headers" scope="col" data-field="subject" contenteditable="true">Math</th>
-                <th class="subject-headers" scope="col" data-field="subject" contenteditable="true">Science</th>
-                <th class="subject-headers" scope="col" data-field="subject" contenteditable="true">Music</th>
-                <th class="subject-headers" scope="col" data-field="subject" contenteditable="true">Gym</th>
-                <th class="subject-headers" scope="col" data-field="subject" contenteditable="true">English</th>
+                <th class="subject-headers" scope="col" data-field="subject">Math</th>
+                <th class="subject-headers" scope="col" data-field="subject">Science</th>
+                <th class="subject-headers" scope="col" data-field="subject">Music</th>
+                <th class="subject-headers" scope="col" data-field="subject">Gym</th>
+                <th class="subject-headers" scope="col" data-field="subject">English</th>
             </tr>
         </thead>
         <tbody class="table-group-divider">
             <tr class="align-items-center">
-                <th scope="row" class="student-name subject-headers" contenteditable="true">{{parsedStudentData.name}}</thead>
+                <th scope="row" class="student-name subject-headers"">{{parsedStudentData.name}}</thead>
                 {{#each parsedStudentData.grades as |grade|}}
-                <td contenteditable="true" id="grades" data-grade={{id}}>{{grade.grade}}</td>
+                <td id="grades" data-grade={{id}}>{{grade.grade}}</td>
                 {{/each}}
-                <td>
-                    <button class="save-icon btn btn-primary btn-sm" data-student="{{student.id}}" type="submit">
-                        <i class="bi bi-save"></i>
-                    </button>
-                </td>
             </tr>
     </tbody>
   </table>
