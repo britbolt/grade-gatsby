@@ -28,6 +28,7 @@ router.get("/teacher", async (req, res) => {
     res.render("teacher-dashboard", {
       news: news.articles,
       studentData: parsedDashboardData,
+      loggedIn: req.session.loggedIn
     });
   } catch (err) {
     console.log(err);
@@ -49,7 +50,7 @@ router.get("/student", async (req, res) => {
     });
     const parsedStudentData = studentData.get({ plain: true })
     console.log(parsedStudentData);
-    res.render("student-dashboard", { parsedStudentData });
+    res.render("student-dashboard", { parsedStudentData, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err.message);
   }
