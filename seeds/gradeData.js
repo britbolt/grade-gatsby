@@ -12,12 +12,12 @@ const gradeData = [
     subject_id: 1,
   },
   {
-    grade: 50,
+    grade: 95,
     student_id: 3,
     subject_id: 4,
   },
   {
-    grade: 78,
+    grade: 90,
     student_id: 4,
     subject_id: 3,
   },

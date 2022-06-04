@@ -2,23 +2,22 @@ html {
     padding-bottom: 4rem;
 }
 .banner {
-    /* background: url("/public/assets/images/smear-blackboard.jpg");
-    background-repeat: no-repeat;
-    background-size: cover; */
-    /* height: 15vh; */
     font-family: 'chalkboy';
     color: #fff;
     font-size: 7rem;
     }
+
 @media only screen and (max-width: 645px) {
     .banner {
         font-size: 3rem;
         margin-bottom: 0!important;
     }
+
     .banner-md {
         font-size: 2rem!important;
         margin: 0;
     }
+    
     .teacher-select, .student-select {
         font-size: 2rem!important;
     }
@@ -50,16 +49,17 @@ html {
     background-size: cover;
 
 } */
-
+/* 
 .notebook {
     background: url("/assets/images/lined-book.png");
 
-}
+} */
 
 @font-face {
     font-family: 'chalkboy';
     src: url('/assets/fonts/Chalkboy.woff2');
 }
+
 
 
 .teacher-select {
@@ -84,14 +84,44 @@ html {
     color: green;
 }
 
-#table {
-    width:75%;
-    
-}
+@media only screen and (max-width: 420px) {
+    header {
+        padding-bottom: 30px;
+    }
+    .subject-headers {
+        writing-mode: vertical-rl;
+        transform: rotate(220deg);
+        font-size: .70rem;
+        text-align: left;
+        max-height: 100px;
+        text-overflow: ellipsis;
+        white-space: normal;
+        padding: 0px;
+    }
+    .table {
+        padding-top: 25px;
+         
+    }
+/*   
+    .table td {
+        width: 20px;
+    } */
+    .container {
+        width: 85%;
+        
+    }
 
-.table-editable {
+    }
+
+/* .table {
+    table-layout: fixed;
+} */
+#table {
+    width: 85%;
     position: relative;
 }
+
+
 
 .footer {
     color:#fff;
