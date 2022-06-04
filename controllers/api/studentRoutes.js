@@ -25,10 +25,7 @@ router.post("/login", async (req, res) => {
       (req.session.user_id = loggedInStudent.id),
         (req.session.username = loggedInStudent.email),
         (req.session.loggedIn = true);
-      res.send({
-        student: loggedInStudent,
-        message: "New account created, logged in!",
-      });
+      res.redirect('/dashboard/student')
     });
   } catch (err) {
     console.log(err.message);
@@ -60,9 +57,7 @@ router.post("/signup", async (req, res) => {
       (req.session.user_id = newStudent.id),
         (req.session.username = newStudent.email),
         (req.session.loggedIn = true);
-      res.send({
-        message: "New account created, logged in!",
-      });
+        res.redirect('/dashboard/student')
     });
   } catch (err) {
     console.log(err.message);
