@@ -1,35 +1,30 @@
 <header>
     <div id="intro" class="bg-image">
-    <h1 class="banner text-center vh-50 pt-2">Your Grades</h1>
-   
-   
+    <h1 class="banner text-center vh-50 pt-2">Your Grades</h1>  
+    </div>
+</header>
 
-     <table id="table" class="table text-light"
-    {{!-- data-url="data/url.json" --}}
-    {{!-- data-id-field="id"
-    data-toolbar="#toolbar"
-    data-show-columns="true"
-    data-show-columns-toggle-all="true"
-    data-detail-view="true"
-    data-click-to-select="true"
-    data-response-handler="responseHandler"> --}}
-   >
+    <div>
+      <p class="student-info text-light">Student Name: {{Student}} <br> Student ID:{{Student.id}}</p>
+      
+    </div>
+      
+
+     <table id="table table-sm mx-auto" class="table text-light">
     <thead class="align-items-center">
       <tr class="align-items-center">
         <th scope="col" data-field="id" data-sortable="true" data-align="center">Classes</th>
-        <th scope="col" data-field="subject" data-editable="false">Math</th>
-        <th scope="col" data-field="name" data-editable="false">Science</th>
-        <th scope="col" data-field="name" data-editable="false">Spanish</th>
-        <th scope="col" data-field="name" data-editable="false">Geography</th>
-        <th scope="col" data-field="name" data-editable="false">English</th>
-
-        {{!-- <th class="col-md-7" data-field="description" data-editable="true" data-editable-emptytext="Custom empty text.">Description</th> --}}
+        <th scope="col" data-field="subject" data-editable="false"></th>
+        <th scope="col" data-field="subject" data-editable="false"></th>
+        <th scope="col" data-field="subject" data-editable="false"></th>
+        <th scope="col" data-field="name" data-editable="false"></th>
+        <th scope="col" data-field="name" data-editable="false"></th>
       </tr>
       </thead>
 
       <tbody>
       <tr>
-          <th scope="row"  data-field="name" data-sortable="true" data-align="center"></th>
+          <th scope="row" data-align="center"></th>
           <td data-field="math-grade" data-sortable="true" data-align="center">B+</td>
            <td data-field="science-grade" data-sortable="true" data-align="center">B+</td>
             <td data-field="spanish-grade" data-sortable="true" data-align="center">B+</td>
@@ -39,16 +34,16 @@
     </tbody>
   </table>
 
-    </div>
-</header>
+  
 
- <nav class="navbar navbar-expand-lg sticky-bottom">
+
+ <div class="navbar navbar-expand-lg sticky-bottom">
         <a class="navbar-brand footer text-light" href="/">Privacy Policy</a>
-    </nav>
+    </div>
 
 {{!-- <script>
   var $table = $('#table')   --}}
 
-<script src="extensions/editable/bootstrap-table-editable.js"></script>
+
 
   
