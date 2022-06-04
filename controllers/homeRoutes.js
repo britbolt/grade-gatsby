@@ -22,41 +22,13 @@ router.get("/teacher-view-student", (req, res) => {
   res.render("teacher-view-student");
 })
 
+router.post('/logout', async (req, res) => {
+  if (req.session.loggedIn) {
+    await req.session.destroy(() => {
+      res.status(204).end();
+    });
+  }
 
-// student login?????
-// router.post("/login-teacher", (req, res) => {
-//   Student.findOne ({
-//     where: {
-//       email: req.body.email
-//     }
-//   })
-//   .then(studentLoginData => {
-//     if(!studentLoginData) {
-//       res.status(400).json({ message: 'Invalid email' });
-//       return;
-//     }
-
-//     const validPassword = studentLoginData.checkPassword(req.body.password);
-
-//     if (!validPassword) {
-//       res.status(400).json({ message: 'Invalid password' });
-//     }
-
-//     // username???
-//     req.session.save(() => {
-//       req.session.student_id = studentLoginData.id;
-//       req.session.username = studentLoginData.username;
-//       req.session.loggedIn = true;
-
-//       res.json({ user: studentLoginData, message: 'Logged in' });
-//     });
-//   });
-// });
-
-// post route goes in teacher routes
-// need login file in js takes stuff from form send to teacher /login, sends back to login.js, get route to teacher dashboard
-// make sure route works first
-
-// document.replace goes to teacher dashboard .get teacher dashboard
+})
 
 module.exports = router;
