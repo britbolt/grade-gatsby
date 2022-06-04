@@ -16,6 +16,7 @@ router.post("/", async (req, res) => {
   }
 });
 
+// Updating a student's grades
 router.put("/", async (req, res) => {
   const { gradesArray } = req.body;
 
