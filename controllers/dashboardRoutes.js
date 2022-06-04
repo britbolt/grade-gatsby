@@ -1,11 +1,9 @@
 const { Student, Grade, Subject } = require("../models");
 const fetch = require("node-fetch");
 const router = require("express").Router();
+const { teachAuth, studentAuth } = require("../utils/auth");
 
-router.get("/teacher", async (req, res) => {
-  if (!req.session.loggedIn) {
-    res.redirect("/");
-  }
+router.get("/teacher", teachAuth, async (req, res) => {
   try {
     const dashboardData = await Student.findAll({
       where: {
@@ -28,7 +26,7 @@ router.get("/teacher", async (req, res) => {
     res.render("teacher-dashboard", {
       news: news.articles,
       studentData: parsedDashboardData,
-      loggedIn: req.session.loggedIn
+      loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     console.log(err);
@@ -36,8 +34,8 @@ router.get("/teacher", async (req, res) => {
   }
 });
 
-router.get("/student", async (req, res) => {
-  console.log(req.session.user_id)
+router.get("/student", studentAuth, async (req, res) => {
+  console.log(req.session.user_id);
   try {
     const studentData = await Student.findOne({
       where: {
@@ -48,9 +46,12 @@ router.get("/student", async (req, res) => {
         order: ["subject_id"],
       },
     });
-    const parsedStudentData = studentData.get({ plain: true })
+    const parsedStudentData = studentData.get({ plain: true });
     console.log(parsedStudentData);
-    res.render("student-dashboard", { parsedStudentData, loggedIn: req.session.loggedIn });
+    res.render("student-dashboard", {
+      parsedStudentData,
+      loggedIn: req.session.loggedIn,
+    });
   } catch (err) {
     console.log(err.message);
   }

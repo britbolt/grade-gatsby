@@ -18,10 +18,6 @@ router.get("/login-student", async (req, res) => {
   res.render("login-student", { allTeachers });
 });
 
-router.get("/teacher-view-student", (req, res) => {
-  res.render("teacher-view-student");
-})
-
 router.post('/logout', async (req, res) => {
   if (req.session.loggedIn) {
     await req.session.destroy(() => {
