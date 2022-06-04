@@ -18,7 +18,7 @@ Student.belongsTo(Teacher, {
 Student.belongsToMany(Subject, {
   through: "grade",
   foreignKey: {
-    name: "subject_id",
+    name: "student_id",
   },
 });
 
@@ -26,13 +26,11 @@ Student.belongsToMany(Subject, {
 Subject.belongsToMany(Student, {
   through: "grade",
   foreignKey: {
-    name: "student_id",
+    name: "subject_id",
   },
 });
 
-
 Student.hasMany(Grade);
-
 Grade.belongsTo(Student);
 
 // Student.belongsToMany(Grade);
