@@ -19,11 +19,15 @@
         <tbody class="table-group-divider">
             {{#each studentData as |student|}}
             <tr class="align-items-center">
-                <th scope="row" class="student-name subject-headers" contenteditable="true">{{student.name}}</th>
+                <th scope="row" class="student-name subject-headers" contenteditable="true">{{student.name}}</thead>
                 {{#each grades}}
-                <td contenteditable="true">{{grade}}</td>
+                <td contenteditable="true" id="grades" data-grade={{id}}>{{grade}}</td>
                 {{/each}}
-                <td><i class="bi bi-save"></i></td>
+                <td>
+                    <button class="save-icon btn btn-primary btn-sm" data-student="{{student.id}}" type="submit">
+                        <i class="bi bi-save"></i>
+                    </button>
+                </td>
             </tr>
             {{/each}}
     </tbody>
@@ -43,3 +47,4 @@
     </article>
     {{/each}}
 </div>  
+<script src="/javascript/teacher-dashboard.js"></script>
