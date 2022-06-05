@@ -1,5 +1,8 @@
 const { Student, Grade, Subject } = require("../models");
 const fetch = require("node-fetch");
+const { getAttributes } = require("../models/Subject");
+const seedSubjects = require("../seeds/subjectData");
+const { get } = require("express/lib/response");
 const router = require("express").Router();
 const { teachAuth, studentAuth } = require("../utils/auth");
 
@@ -33,6 +36,7 @@ router.get("/teacher", teachAuth, async (req, res) => {
     res.status(500).json({ message: "Something went wrong" });
   }
 });
+
 
 router.get("/student", studentAuth, async (req, res) => {
   console.log(req.session.user_id);

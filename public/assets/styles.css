@@ -77,6 +77,14 @@ body {
     color: green;
 }
 
+/* styles for table */
+.container {
+    width: 95%;   
+}
+
+.teach-tbody {
+    border-top-color: green;
+}
 @media only screen and (max-width: 420px) {
     header {
         padding-bottom: 30px;
@@ -92,35 +100,29 @@ body {
         padding: 0px;
     }
     .table {
-        padding-top: 25px;
-         
-    }
-/*   
-    .table td {
-        width: 20px;
-    } */
-    .container {
-        width: 85%;
-        
+        padding-top: 25px;    
     }
 
+}
+    .table:hover tbody tr:hover th {
+        background-color: #fff;
+        color: green;
     }
 
-/* .table {
-    table-layout: fixed;
-} */
-#table {
-    width: 85%;
-    position: relative;
+    .table:hover tbody tr:hover td {
+        background-color: #fff;
+        color: green;
+    }
+
+.ed-news {
+    font-family: 'chalkboy';
+    font-size: 4rem;
+    text-decoration: none;
+    color: #fff;
+
 }
 
-
-
-.footer {
-    color:#fff;
-}
-
-/* ARTICLES IN TEACHER DASHBOARD */
+ARTICLES IN TEACHER DASHBOARD
 article {
     width: 100%;
     align-items: center;

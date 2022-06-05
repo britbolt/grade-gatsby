@@ -4,11 +4,13 @@
     </div>
 </header>
 
-<div id="table container" class="text-center">
-    <table class="table text-light">
+
+<div id="table" class="container text-center">
+
+    <table class="table text-light table-hover">
         <thead class="align-items-center">
             <tr class="align-items-center">
-                <th class="subject-headers" scope="row" contenteditable="false"></th>
+                <th class="subject-headers" scope="row" contenteditable="true">Student Name</th>
                 <th class="subject-headers" scope="col" data-field="subject" contenteditable="true">Math</th>
                 <th class="subject-headers" scope="col" data-field="subject" contenteditable="true">Science</th>
                 <th class="subject-headers" scope="col" data-field="subject" contenteditable="true">Music</th>
@@ -16,33 +18,36 @@
                 <th class="subject-headers" scope="col" data-field="subject" contenteditable="true">English</th>
             </tr>
         </thead>
-        <tbody class="table-group-divider">
+        <tbody class="teach-tbody table-group-divider">
             {{#each studentData as |student|}}
             <tr class="align-items-center">
-                <th scope="row" class="student-name subject-headers" contenteditable="true">{{student.name}}</thead>
+                <th scope="row" class="student-name subject-headers" contenteditable="true">{{student.name}}</th>
                 {{#each grades}}
                 <td contenteditable="true" id="grades" data-grade={{id}}>{{grade}}</td>
                 {{/each}}
-                <td>
-                    <button class="save-icon btn btn-primary btn-sm" data-student="{{student.id}}" type="submit">
+                <td><button class="save-icon btn btn-primary btn-sm" data-student="{{student.id}}" type="submit">
                         <i class="bi bi-save"></i>
-                    </button>
-                </td>
+                    </button></td>
             </tr>
             {{/each}}
-    </tbody>
-  </table>
-    </div>
+        </tbody>
+    </table>
+
+</div>
+
+<div class="ed-news text-center border-top border-color-success"><p>Education News Updates</p></div>
+
 <div class="d-flex align-items-center flex-column">
    <h2 class="ed-news text-center text-light">Latest in Education News</h2> 
     {{#each news as |article|}}
     <article class="d-flex border border-light rounded">
-    <p class="title text-light">{{article.title}}</p>
-    <div class="article-flex d-flex align-items-center">
-    <img class="article-image me-3" src="{{article.urlToImage}}" alt="article photo">
-    <p class="description text-light">{{article.description}}</p>
-    </div>
+        <p class="title text-light">{{article.title}}</p>
+        <div class="article-flex d-flex align-items-center">
+            <img class="article-image me-3" src="{{article.urlToImage}}" alt="article photo">
+            <p class="description text-light">{{article.description}}</p>
+        </div>
     </article>
     {{/each}}
 </div>  
 <script src="/javascript/teacher-dashboard.js"></script>
+
