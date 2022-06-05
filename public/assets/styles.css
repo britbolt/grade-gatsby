@@ -104,7 +104,12 @@ html {
         color: green;
     }
 
-
+.ed-news {
+    font-family: 'chalkboy';
+    font-size: 4rem;
+    text-decoration: none;
+    color: #fff;
+}
 
 ARTICLES IN TEACHER DASHBOARD
 article {

@@ -7,20 +7,25 @@
 <div id="table" class="container text-center"> 
 <table class="table text-light" <thead class="align-items-center">
   <tr class="align-items-center">
-  
-   <th class="subject-headers" scope="col" data-field="id" data-sortable="true" data-align="center">Courses</th>
-    <th class="subject-headers" scope="col" data-field="subject" data-editable="false">Last Updated</th>
-    <th class="subject-headers" scope="col" data-field="name" data-editable="false">Grade</th>
-    <th class="subject-headers" scope="col" data-field="name" data-editable="false">Grade is Final</th>
+ 
+   <th class="subject-headers" scope="col" data-field="id" data-align="center">Math</th>
+    <th class="subject-headers" scope="col" data-field="subject" data-editable="false">Science</th>
+    <th class="subject-headers" scope="col" data-field="name" data-editable="false">Music</th>
+    <th class="subject-headers" scope="col" data-field="name" data-editable="false">English</th>
+     <th class="subject-headers" scope="col" data-field="subject" data-editable="false">Gym</th>
+    <th class="subject-headers" scope="col" data-field="name" data-editable="false">History</th>
+    <th class="subject-headers" scope="col" data-field="name" data-editable="false">Spanish</th>
     
   </tr>
   </thead>
 
   <tbody class="table-group-divider">
     <tr class="align-items-center">
-      {{#each Subject}}
-      <th class="subject-headers subject" scope="row" data-field="name" data-sortable="true" data-align="center">{{this}}</th>
-      <td data-field="math-grade" data-sortable="true" data-align="center">{{this}}</td>
+      {{#each studentData as |student|}}
+      <th class="subject-headers subject" scope="row" data-field="name" data-align="center">{{grade}}</th>
+      <td contenteditable="true" id="grades" data-grade={{id}}>{{grade}}</td>
+
+
       <td data-field="science-grade" data-sortable="true" data-align="center">{{this}}</td>
       <td data-field="spanish-grade" data-sortable="true" data-align="center">{{this}}</td>
       <td data-field="geography-grade" data-sortable="true" data-align="center">{{this}}</td>

@@ -18,22 +18,23 @@
             </tr>
         </thead>
         <tbody class="teach-tbody table-group-divider">
+            {{#each studentData as |student|}}
             <tr class="align-items-center">
-                <th scope="row" class="student-name subject-headers" contenteditable="true">Brittany</th>
-                <td contenteditable="true">A</td>
-                <td contenteditable="true">A</td>
-                <td contenteditable="true">A</td>
-                <td contenteditable="true">B</td>
-                <td contenteditable="true">A</td>
+                <th scope="row" class="student-name subject-headers" contenteditable="true">{{student.name}}</th>
+                {{#each grades}}
+                <td contenteditable="true" id="grades" data-grade={{id}}>{{grade}}</td>
+                {{/each}}
+                <td><button class="save-icon btn btn-primary btn-sm" data-student="{{student.id}}" type="submit">
+                        <i class="bi bi-save"></i>
+                    </button></td>
             </tr>
+            {{/each}}
         </tbody>
     </table>
 
 </div>
 
-<div class="save-button container">
-<button id="save-btn" class="btn btn-primary">Save</button>
-<p id="save"></p></div>
+<div class="ed-news text-center border-top border-color-success"><p>Education News Updates</p></div>
 
 <div class="d-flex align-items-center flex-column">
     {{#each news as |article|}}
