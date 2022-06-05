@@ -94,7 +94,6 @@ html {
         padding-top: 25px;    
     }
 }
-
     .table:hover tbody tr:hover th {
         background-color: #fff;
         color: green;
@@ -104,17 +103,10 @@ html {
         background-color: #fff;
         color: green;
     }
-/* #table {
-    width:75%;
-    position: relative;
-    
-} */
 
-.footer {
-    color:#fff;
-}
 
-/* ARTICLES IN TEACHER DASHBOARD */
+
+ARTICLES IN TEACHER DASHBOARD
 article {
     width: 100%;
     align-items: center;

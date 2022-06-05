@@ -1,5 +1,8 @@
-const { Teacher } = require("../models");
+const { Teacher, Subject, Student } = require("../models");
 const fetch = require("node-fetch");
+const { getAttributes } = require("../models/Subject");
+const seedSubjects = require("../seeds/subjectData");
+const { get } = require("express/lib/response");
 const router = require("express").Router();
 
 router.get("/teacher", async (req, res) => {
@@ -14,8 +17,14 @@ router.get("/teacher", async (req, res) => {
   res.render("teacher-dashboard", { news: news.articles });
 });
 
-router.get("/student", (req, res) => {
-  res.render("student-dashboard");
+
+
+router.get("/student", async (req, res) => {
+  if (!req.session.loggedIn) {
+    res.redirect("/");
+  }
+
+res.render("student-dashboard");
 });
 
 module.exports = router;
