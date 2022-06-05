@@ -1,27 +1,27 @@
-const { Student, Teacher } = require("../models");
+const { Student } = require("../models");
 
 const seedStudents = async () => { 
   await Student.create({
-    name: "Dave Sanders",
+    name: "Dave",
     email: "dave@gmail.com",
     password: "123456",
     teacher_id: "1",
   })
   await Student.create({
-    name: "Taylor Roberts",
+    name: "Taylor",
     email: "taylor@gmail.com",
     password: "123456",
     teacher_id: "2",
   })
   await Student.create({
-    name: "Britt Bolt",
+    name: "Britt",
     email: "britt@gmail.com",
     password: "123456",
     teacher_id: "1",
   })
   await Student.create({
-    name: "Other Guy",
-    email: "otherguy@gmail.com",
+    name: "Jeff",
+    email: "jeff@gmail.com",
     password: "123456",
     teacher_id: "2",
   })

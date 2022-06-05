@@ -5,7 +5,9 @@ router.post("/login", async (req, res) => {
   console.log(req.body);
   try {
     const loggedInStudent = await Student.findOne({
-      email: req.body.email,
+      where: {
+        email: req.body.email,
+      },
     });
 
     if (!loggedInStudent) {
@@ -23,10 +25,7 @@ router.post("/login", async (req, res) => {
       (req.session.user_id = loggedInStudent.id),
         (req.session.username = loggedInStudent.email),
         (req.session.loggedIn = true);
-      res.send({
-        student: loggedInStudent,
-        message: "New account created, logged in!",
-      });
+      res.redirect('/dashboard/student')
     });
   } catch (err) {
     console.log(err.message);
@@ -35,7 +34,9 @@ router.post("/login", async (req, res) => {
 });
 
 // Add a single student/sign up
+// Add a single student/sign up
 router.post("/signup", async (req, res) => {
+  console.log(req.body);
   try {
     const newStudent = await Student.create({
       name: req.body.signUpName,
@@ -43,14 +44,20 @@ router.post("/signup", async (req, res) => {
       password: req.body.signUpPassword,
       teacher_id: req.body.teacher,
     });
+    console.log(newStudent);
+    // creating empty grades for new student
+    for (let i = 1; i <= 5; i++) {
+      await Grade.create({
+        grade: 0,
+        student_id: newStudent.id,
+        subject_id: i,
+      });
+    }
     req.session.save(() => {
       (req.session.user_id = newStudent.id),
         (req.session.username = newStudent.email),
         (req.session.loggedIn = true);
-      res.send({
-        student: newStudent,
-        message: "New account created, logged in!",
-      });
+        res.redirect('/dashboard/student')
     });
   } catch (err) {
     console.log(err.message);
@@ -58,21 +65,20 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-
-router.get('/:id', (req, res) => {
+router.get("/:id", (req, res) => {
   Student.findOne({
     where: {
-      id: req.params.id
+      id: req.params.id,
     },
     include: {
-      model: Grade
-    }
+      model: Grade,
+    },
   })
-  .then(dbStudentData => res.json(dbStudentData))
-  .catch(err => {
-    console.log(err);
-    res.status(500).json({ message: 'you still did something wrong' });
-  });
+    .then((dbStudentData) => res.json(dbStudentData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ message: "you still did something wrong" });
+    });
 });
 
 module.exports = router;

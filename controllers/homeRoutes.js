@@ -3,14 +3,22 @@ const { Teacher } = require("../models");
 const router = require("express").Router();
 
 router.get("/", (req, res) => {
-  res.render("home");
+    res.render("home", {
+      loggedIn: req.session.loggedIn,
+    });
 });
 
 // redirect to homepage if loggedIn????where does this go?
 router.get("/login-teacher", (req, res) => {
+  if (req.session.teacher_id) {
+    res.redirect("/dashboard/teacher");
+  }
   res.render("login-teacher");
 });
 router.get("/login-student", async (req, res) => {
+  if (req.session.user_id) {
+    res.redirect("/dashboard/student");
+  }
   const allTeachers = await Teacher.findAll({
     attributes: ["id", "name"],
     raw: true,
@@ -18,45 +26,12 @@ router.get("/login-student", async (req, res) => {
   res.render("login-student", { allTeachers });
 });
 
-router.get("/teacher-view-student", (req, res) => {
-  res.render("teacher-view-student");
-})
-
-
-// student login?????
-// router.post("/login-teacher", (req, res) => {
-//   Student.findOne ({
-//     where: {
-//       email: req.body.email
-//     }
-//   })
-//   .then(studentLoginData => {
-//     if(!studentLoginData) {
-//       res.status(400).json({ message: 'Invalid email' });
-//       return;
-//     }
-
-//     const validPassword = studentLoginData.checkPassword(req.body.password);
-
-//     if (!validPassword) {
-//       res.status(400).json({ message: 'Invalid password' });
-//     }
-
-//     // username???
-//     req.session.save(() => {
-//       req.session.student_id = studentLoginData.id;
-//       req.session.username = studentLoginData.username;
-//       req.session.loggedIn = true;
-
-//       res.json({ user: studentLoginData, message: 'Logged in' });
-//     });
-//   });
-// });
-
-// post route goes in teacher routes
-// need login file in js takes stuff from form send to teacher /login, sends back to login.js, get route to teacher dashboard
-// make sure route works first
-
-// document.replace goes to teacher dashboard .get teacher dashboard
+router.post("/logout", async (req, res) => {
+  if (req.session.loggedIn) {
+    await req.session.destroy(() => {
+      res.status(204).end();
+    });
+  }
+});
 
 module.exports = router;

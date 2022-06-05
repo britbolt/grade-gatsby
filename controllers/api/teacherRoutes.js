@@ -16,7 +16,7 @@ router.post("/signup", async (req, res) => {
       req.session.username = newTeacher.username;
       req.session.loggedIn = true;
 
-      res.send({ user: newTeacher, message: "Signed up" });
+      res.redirect('/dashboard/teacher')
     });
   } catch (err) {
     console.log(err.message);
@@ -35,7 +35,7 @@ router.post("/login", (req, res) => {
     .then((teacherLoginData) => {
       console.log(teacherLoginData);
       if (!teacherLoginData) {
-        res.status(400).json({ message: "Invalid email" });
+        res.status(400).json({ message: "Invalid email"});
         return;
       }
 
@@ -51,32 +51,13 @@ router.post("/login", (req, res) => {
         req.session.username = teacherLoginData.username;
         req.session.loggedIn = true;
 
-        res.send({ user: teacherLoginData, message: "Logged in" });
+        res.redirect('/dashboard/teacher')
       });
     })
     .catch((err) => {
       console.log(err);
       res.sendStatus(500);
     });
-});
-
-router.get('/:id', (req, res) => {
-  Teacher.findOne({
-    where: {
-      id: req.params.id
-    },
-    include: {
-      model: Student,
-      include: {
-        model: Grade
-      }
-    }
-  })
-  .then(dbTeacherData => res.json(dbTeacherData))
-  .catch(err => {
-    console.log(err);
-    res.status(500).json({ message: 'no' });
-  });
 });
 
 module.exports = router;

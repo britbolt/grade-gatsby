@@ -11,16 +11,10 @@ const subjectData = [
     name: "Music",
   },
   {
-    name: "English",
-  },
-  {
     name: "Gym",
   },
   {
-    name: "History",
-  },
-  {
-    name: "Spanish",
+    name: "English",
   },
 ];
 
