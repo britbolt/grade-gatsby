@@ -1,7 +1,7 @@
 // authorization protection middleware
 const teachAuth = (req, res, next) => {
   if (!req.session.teacher_id) {
-    res.render("home", { loggedIn: req.session.loggedIn });
+    res.redirect("/")
   } else {
     next();
   }
@@ -9,8 +9,8 @@ const teachAuth = (req, res, next) => {
 
 const studentAuth = (req, res, next) => {
   if (!req.session.user_id) {
-    res.render("home", { loggedIn: req.session.loggedIn });
-  } else {
+    res.redirect("/")
+    } else {
     next();
   }
 };
