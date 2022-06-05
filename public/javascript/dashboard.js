@@ -16,6 +16,9 @@ console.log('load!!');
     $(this).parents('tr').detach();
   });
 
+  $('#confirm-delete').on('show.bs.modal', function(e) {
+    $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+});
 
   // jQuery helpers for exporting
   jQuery.fn.pop = [].pop;

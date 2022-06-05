@@ -2,10 +2,6 @@ html {
     padding-bottom: 4rem;
 }
 .banner {
-    /* background: url("/public/assets/images/smear-blackboard.jpg");
-    background-repeat: no-repeat;
-    background-size: cover; */
-    /* height: 15vh; */
     font-family: 'chalkboy';
     color: #fff;
     font-size: 7rem;
@@ -42,19 +38,7 @@ html {
         background-attachment: fixed;
     }
     
-/* html  {
-    background: url("/public/assets/images/smear-blackboard.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
 
-} */
-
-.notebook {
-    background: url("/assets/images/lined-book.png");
-
-}
 
 @font-face {
     font-family: 'chalkboy';
@@ -84,14 +68,47 @@ html {
     color: green;
 }
 
-#table {
-    width:75%;
-    
+/* styles for table */
+.container {
+    width: 95%;   
 }
 
-.table-editable {
-    position: relative;
+.teach-tbody {
+    border-top-color: green;
 }
+@media only screen and (max-width: 420px) {
+    header {
+        padding-bottom: 30px;
+    }
+    .subject-headers {
+        writing-mode: vertical-rl;
+        transform: rotate(220deg);
+        font-size: .70rem;
+        text-align: left;
+        max-height: 100px;
+        text-overflow: ellipsis;
+        white-space: normal;
+        padding: 0px;
+    }
+    .table {
+        padding-top: 25px;    
+    }
+}
+
+    .table:hover tbody tr:hover th {
+        background-color: #fff;
+        color: green;
+    }
+
+    .table:hover tbody tr:hover td {
+        background-color: #fff;
+        color: green;
+    }
+/* #table {
+    width:75%;
+    position: relative;
+    
+} */
 
 .footer {
     color:#fff;
