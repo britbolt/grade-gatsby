@@ -4,7 +4,7 @@ This full stack application is a fictional grading dashboard, allowing teachers 
 
 ## Screenshots
 
-<img src= "./public/assets/img/site-screenshot.png" width="500px"/>
+<img src= "./public/assets/images/site-screenshot.png" width="500px"/>
 
 ## Installation and Start Up
 
@@ -20,7 +20,7 @@ This full stack application is a fictional grading dashboard, allowing teachers 
 
 ## Live Site
 
-The site is also viewable [here]().
+The site is also viewable [here](https://grade-gatsby.herokuapp.com/).
 
 ## Technologies
 
